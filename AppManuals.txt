@@ -1,0 +1,7 @@
+https://datatables.net/manual/installation - Upustvo i resursi za JQuery tabele
+
+https://www.youtube.com/watch?v=nZPgzFR2t58 - Turtorijal za JQuery tabele (zikica, casanova1988, zivkoarsenov@yahoo.com)
+
+https://www.aspsnippets.com/questions/108798/Bind-Menu-dynamically-in-layout-page-from-Database-in-ASPNet-MVC/ - Primer programabilnog menija
+
+https://www.ittutorijali.net/kursevi/bootstrap/ikonice.php - Bootstrap ikonice
