@@ -1,0 +1,24 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <table id="userTable" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <td>Korisnicko ime</td>
+                    <td>Guid</td>
+                    <td>Ime i prezime</td>
+                    <td>Opis</td>
+                    <td>Email</td>          
+            </tr>
+        </thead>      
+    </table>
+
+</div>
+<script src="~/js/DataAccessUser.js"></script>
+<!-- Add reference to datatables.min.css -->
+<link href="~/css/jquery.dataTables.min.css" rel="stylesheet" />
+<link href="~/css/dataTables.bootstrap.min.css" rel="stylesheet" />
+<!-- Add reference to datatables.min.js -->
+<script src="~/js/jquery.dataTables.min.js"></script>
