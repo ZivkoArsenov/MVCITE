@@ -8,7 +8,7 @@ namespace MVCITE.Controllers
         {
             return View();
         }
-        public IActionResult LoginCheck()
+        public IActionResult LoginCheck(string userName, string password)
         {
             return RedirectToAction("DataAccessUser", "DataAccessUser");
         }
