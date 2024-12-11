@@ -1,60 +1,69 @@
-﻿
+﻿@using MVCITE.ObjectModel.DataModels
+@model User
+
 <link rel="stylesheet" href="~/css/LoginCSS.css">
 <script type="text/javascript" charset="utf8" src="~/js/LoginJS.js"></script>
 
 <div class="login-wrap">
 	<div class="login-html">
+
 		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Prijava</label>
-		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab">Registracija</label>
+		<input id="tab-2" type="radio" name="tab" class="sign-up"><label for="tab-2" class="tab" >Registracija</label>
+
 		<div class="login-form">
 			<div class="sign-in-htm">
-				<form class="form-signin" method="post">
+				<form class="form-signin" method="post" action="\Login\Login">
 					<div class="group">
 						<label for="user" class="label">Korisničko ime</label>
-						<input id="user" type="text" class="input">
+						<input id="user" name="username" type="text" class="input">
 					</div>
 					<div class="group">
 						<label for="pass" class="label">Lozinka</label>
-						<input id="pass" type="password" class="input" data-type="password">
+						<input id="pass" name="password" type="password" class="input" data-type="password">
 					</div>
+					@if (@ViewBag.error is not null)
+					{
+						<p class="group">@ViewBag.error</p>
+					}
+				
 					<div class="group">
-						<input id="check" type="checkbox" class="check">
-						<label for="check"><span class="icon"></span> Zapamti me</label>
-					</div>
-					<div class="group">
-						<input type="submit" class="button" value="Prijavi se" onclick="LoginClick()">
+						<input type="submit" class="button" value="Prijavi se">
 					</div>
 				</form>
 				
-				<div class="hr"></div>
-				<div class="foot-lnk">
-					<a href="#forgot">Zaboravio si lozinku?</a>
-				</div>
+				<div class="hr"></div>		
 			</div>
 			<div class="sign-up-htm">
-				<div class="group">
-					<label for="user" class="label">Korisničko ime</label>
-					<input id="user" type="text" class="input">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Lozinka</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Potvrdi lozinku</label>
-					<input id="pass" type="password" class="input" data-type="password">
-				</div>
-				<div class="group">
-					<label for="pass" class="label">Email</label>
-					<input id="pass" type="text" class="input">
-				</div>
-				<div class="group">
-					<input type="submit" class="button" value="Registruj se">
-				</div>
-				<div class="hr"></div>
-				<div class="foot-lnk">
-					<label for="tab-1>Imaš nalog?</label>					
-				</div>
+
+				@using (Html.BeginForm("SignUp", "Login", FormMethod.Post))
+				{
+					<div class="group">				
+						<p>Korisničko ime</p>
+						@Html.TextBoxFor(x => x.Username)
+						@Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+					</div>
+					<div class="group">						
+						<p>Lozinka</p>
+						@Html.TextBoxFor(x => x.Password)
+						@Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+					</div>
+					<div class="group">				
+						<p>Ime i prezime </p>
+						@Html.TextBoxFor(x => x.FullName)
+						@Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+					</div>
+					<div class="group">				
+						<p>Email</p>
+						@Html.TextBoxFor(x => x.Email)
+						@Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+					</div>					
+					<div class="group">
+						<input type="submit" class="button" value="Registruj se">
+					</div>
+
+					<div class="hr"></div>
+				}
+
 			</div>
 		</div>
 	</div>

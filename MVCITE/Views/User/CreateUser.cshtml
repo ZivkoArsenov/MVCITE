@@ -1,0 +1,58 @@
+﻿@using MVCITE.ObjectModel.DataModels
+@model User
+
+<link rel="stylesheet" href="~/css/UserCSS.css">
+
+@{
+    var roles = ViewData["Roles"] as List<Role>;
+}
+
+<div class="card">
+
+    @using (Html.BeginForm("Save", "User", FormMethod.Post))
+    {
+        <div class="group">
+            @Html.TextBoxFor(x => x.ID, new { @class = "form-control", @readonly = "readonly" })
+        </div>
+
+        <div class="group">
+            <p>Korisničko ime</p>
+            @Html.TextBoxFor(x => x.Username)
+            @Html.ValidationMessageFor(m => m.Username, "", new { @class = "text-danger" })
+        </div>
+        <div class="group">
+            <p>Lozinka</p>
+            @Html.TextBoxFor(x => x.Password)
+            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+        </div>
+        <div class="group">
+            <p>Ime i prezime </p>
+            @Html.TextBoxFor(x => x.FullName)
+            @Html.ValidationMessageFor(m => m.FullName, "", new { @class = "text-danger" })
+        </div>
+        <div class="group">
+            <p>Email</p>
+            @Html.TextBoxFor(x => x.Email)
+            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        </div>
+    
+        <div class="group">
+            <label>Role</label>
+            @Html.DropDownListFor(x => x.RoleID, (IEnumerable<SelectListItem>)ViewBag.Roles, "Select Role", new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.RoleID, "", new { @class = "text-danger" })
+        </div>
+     
+        <div class="row">
+            <div>
+                <div class="form-group" style="margin-top:10px">
+                        <input type="submit" class="btn btn-success" value="Sacuvaj"> <a onclick="CancelCreateUser()" class="btn btn-danger">Cancel</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hr"></div>
+    }
+
+</div>
+
+<script src="~/js/User.js"></script>
