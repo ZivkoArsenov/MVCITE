@@ -8,11 +8,9 @@ namespace MVCITE.Repository.DTOs
 {
     public class LoginResponseDTO
     {
-        public DataAccessUserDTO User { get; set; }
+        public UserDTO User { get; set; }
         public List<WebMenuDTO> WebMenus { get; set; }
         public List<WebMenuTypeDTO> WebMenuTypes { get; set; }
-
-        public AppSettingsDTO AppSettings { get; set; }
 
     }
 }

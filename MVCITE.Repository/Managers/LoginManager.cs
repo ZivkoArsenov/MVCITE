@@ -15,11 +15,11 @@ namespace MVCITE.Repository.Managers
         static string _baseAddress;
         static HttpClient client;
 
-        public LoginManager(string baseAddress)
+        public LoginManager()
         {
             try
             {
-                _baseAddress = baseAddress;
+                _baseAddress = "http://localhost:44444/MVCITEAPI/";
                 client = new HttpClient
                 {
                     BaseAddress = new Uri(_baseAddress)
